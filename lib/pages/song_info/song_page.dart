@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:lancaai/components/chat.dart';
 
 import '../full_screen_chat.dart';
@@ -202,9 +203,26 @@ class SongPage extends StatelessWidget {
         Center(
           child: Padding(
             padding: const EdgeInsets.all(24),
-            child: Text(
-              'Converse com LançaAI',
-              style: Theme.of(context).textTheme.headlineMedium,
+            child: Column(
+              children: [
+                Text(
+                  'Converse com LançaAI',
+                  style: Theme.of(context).textTheme.headlineMedium,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Text('Desenvolvido com',
+                        style: Theme.of(context).textTheme.bodyMedium),
+                    const SizedBox(width: 8),
+                    Image.asset(
+                      'assets/gemini.png',
+                      height: 24,
+                    )
+                  ],
+                ),
+              ],
             ),
           ),
         ),
@@ -237,7 +255,8 @@ class SongPage extends StatelessWidget {
             onPressed: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (context) => FullScreenChat(name: name, lyrics: lyrics, songData: songData),
+                  builder: (context) => FullScreenChat(
+                      name: name, lyrics: lyrics, songData: songData),
                 ),
               );
             },
