@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gemini/flutter_gemini.dart';
 import 'package:lancaai/pages/home.dart';
+import 'package:lancaai/pages/splash.dart';
 import 'package:lancaai/theme/theme.dart';
 import 'package:lancaai/theme/util.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -33,7 +34,7 @@ class MyApp extends StatelessWidget {
       title: 'LançaAI',
       theme: brightness == Brightness.light ? theme.light() : theme.dark(),
       themeMode: ThemeMode.dark,
-      home: const Home(),
+      home: const Splash(),
     );
   }
 }
