@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gemini/flutter_gemini.dart';
-import 'package:lancaai/pages/home.dart';
 import 'package:lancaai/pages/splash.dart';
 import 'package:lancaai/theme/theme.dart';
 import 'package:lancaai/theme/util.dart';
