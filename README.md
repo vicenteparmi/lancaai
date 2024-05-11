@@ -1,4 +1,4 @@
-# LançaAI
+# LançaAI: Letras de Rita Lee aprofundadas com Gemini
 
 Conheça mais a fundo as músicas mais ouvidas de RitaLee com o auxílio do Gemini! Aqui você pode ver as letras das músicas, analizar sentimentos, contexto, influências e correlações em cada uma delas.
 
