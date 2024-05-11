@@ -43,78 +43,7 @@ class _SettingsPageState extends State<SettingsPage> {
             trailing: const Icon(Icons.chevron_right),
             onTap: () {
               // Modal bottom sheet to input the API key
-              showModalBottomSheet(
-                showDragHandle: true,
-                context: context,
-                builder: (BuildContext context) {
-                  return Padding(
-                    padding: const EdgeInsets.all(16),
-                    child: Column(
-                      children: [
-                        const Text('Insira sua chave de API'),
-                        const SizedBox(height: 16),
-                        TextField(
-                          decoration: const InputDecoration(
-                            labelText: 'Chave de API',
-                          ),
-                          controller: _apiKeyController,
-                        ),
-                        const SizedBox(height: 16),
-                        ButtonBar(
-                          children: [
-                            TextButton.icon(
-                              icon: const Icon(Icons.help),
-                              onPressed: () {
-                                // Show help dialog
-                                showDialog(
-                                  context: context,
-                                  builder: (BuildContext context) {
-                                    return AlertDialog(
-                                      title: const Text('Ajuda'),
-                                      content: const Text(
-                                          'Obtenha sua chave de API no Google AI Studio e insira-a aqui. Para acessar, clique no botão abaixo e siga as instruções.'),
-                                      actions: [
-                                        TextButton(
-                                            onPressed: () {
-                                              // Launch url
-                                              launchUrl(Uri.parse(
-                                                  'https://aistudio.google.com/app/apikey'));
-                                              Navigator.pop(context);
-                                            },
-                                            child: const Text(
-                                                'Obter chave de API')),
-                                        FilledButton(
-                                          onPressed: () {
-                                            Navigator.pop(context);
-                                          },
-                                          child: const Text('Fechar'),
-                                        ),
-                                      ],
-                                    );
-                                  },
-                                );
-                              },
-                              label: const Text('Ajuda'),
-                            ),
-                            FilledButton(
-                              onPressed: () {
-                                final String apiKey = _apiKeyController.text;
-                                SharedPreferences.getInstance()
-                                    .then((SharedPreferences prefs) {
-                                  prefs.setString('apiKey', apiKey);
-                                });
-                                // Restart app
-                                Restart.restartApp();
-                              },
-                              child: const Text('Salvar'),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  );
-                },
-              );
+              askAPIKey(context);
             },
           ),
           // Credits
@@ -191,6 +120,98 @@ class _SettingsPageState extends State<SettingsPage> {
             applicationLegalese: '© 2024 Vicente K. Parmigiani',
             child: Text('Clique para ver as licenças'),
           )
+        ],
+      ),
+    );
+  }
+
+  Future<dynamic> askAPIKey(BuildContext context) {
+    return showModalBottomSheet(
+      showDragHandle: true,
+      context: context,
+      builder: (BuildContext context) {
+        return ApiKeyRequest(apiKeyController: _apiKeyController);
+      },
+    );
+  }
+}
+
+class ApiKeyRequest extends StatelessWidget {
+  const ApiKeyRequest({
+    super.key,
+    required TextEditingController apiKeyController,
+  }) : _apiKeyController = apiKeyController;
+
+  final TextEditingController _apiKeyController;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(16),
+      child: Column(
+        children: [
+          const Text('Insira sua chave de API'),
+          const SizedBox(height: 16),
+          TextField(
+            decoration: const InputDecoration(
+              labelText: 'Chave de API',
+            ),
+            controller: _apiKeyController,
+          ),
+          const SizedBox(height: 16),
+          ButtonBar(
+            children: [
+              TextButton.icon(
+                icon: const Icon(Icons.help),
+                onPressed: () {
+                  // Show help dialog
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        title: const Text('Ajuda'),
+                        content: const Text(
+                            'Obtenha sua chave de API no Google AI Studio e insira-a aqui. Para acessar, clique no botão abaixo e siga as instruções.'),
+                        actions: [
+                          TextButton(
+                              onPressed: () {
+                                // Launch url
+                                launchUrl(Uri.parse(
+                                    'https://aistudio.google.com/app/apikey'));
+                                Navigator.pop(context);
+                              },
+                              child: const Text('Obter chave de API')),
+                          FilledButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            child: const Text('Fechar'),
+                          ),
+                        ],
+                      );
+                    },
+                  );
+                },
+                label: const Text('Ajuda'),
+              ),
+              FilledButton(
+                onPressed: () {
+                  final String apiKey = _apiKeyController.text;
+                  SharedPreferences.getInstance()
+                      .then((SharedPreferences prefs) {
+                    prefs.setString('apiKey', apiKey);
+                  });
+                  // Restart app
+                  Restart.restartApp();
+                },
+                child: const Text('Salvar'),
+              ),
+            ],
+          ),
+          const SizedBox(height: 16),
+          const Text(
+              'A chave de API é necessária para acessar os recursos de inteligência artificial do Google. Para obter sua chave, acesse o Google AI Studio e siga as instruções. Você poderá alterar sua chave a qualquer momento nas configurações.',
+              style: TextStyle(color: Colors.grey)),
         ],
       ),
     );

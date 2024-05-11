@@ -5,6 +5,7 @@ import 'package:lancaai/pages/song_info/lyrics.dart';
 import 'package:lancaai/pages/song_info/names.dart';
 import 'package:lancaai/pages/song_info/song_data.dart';
 import 'package:lancaai/pages/song_info/song_page.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -40,6 +41,15 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
           ],
         ),
         actions: [
+          // Github button
+          IconButton(
+            icon: const Icon(Icons.code),
+            tooltip: 'Ver código',
+            onPressed: () {
+              launchUrl(Uri.parse('https://github.com/vicenteparmi/lancaai'),
+                  mode: LaunchMode.externalApplication);
+            },
+          ),
           // Settings button
           IconButton(
             icon: const Icon(Icons.settings),
