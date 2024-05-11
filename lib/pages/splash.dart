@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lancaai/components/material_you_shape.dart';
 import 'package:lancaai/pages/home.dart';
 
 class Splash extends StatelessWidget {
@@ -14,7 +15,7 @@ class Splash extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const FlutterLogo(size: 100),
+              const MaterialYouShape(),
               const SizedBox(height: 16),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,

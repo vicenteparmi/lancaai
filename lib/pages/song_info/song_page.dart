@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:lancaai/components/chat.dart';
 
 import '../full_screen_chat.dart';
