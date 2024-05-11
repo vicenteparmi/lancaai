@@ -4,7 +4,7 @@ Conheça mais a fundo as músicas mais ouvidas de RitaLee com o auxílio do Gemi
 
 ## Link para acesso
 
-- [Versão web](https://vicenteparmi.github.io/lancaai/)
+- [Versão web](https://vicenteparmi.github.io/lancaaiweb/)
 
 > O projeto também foi desenvolvido para ser acessado em dispositivos móveis. Para isso, será necessário realizar a compilação do projeto para a plataforma desejada.
 
