@@ -1,8 +1,9 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:restart_app/restart_app.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:universal_html/html.dart' as html;
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
@@ -202,7 +203,11 @@ class ApiKeyRequest extends StatelessWidget {
                     prefs.setString('apiKey', apiKey);
                   });
                   // Restart app
-                  Restart.restartApp();
+                  if (kIsWeb) {
+                    html.window.location.reload();
+                  } else {
+                    Restart.restartApp();
+                  }
                 },
                 child: const Text('Salvar'),
               ),
