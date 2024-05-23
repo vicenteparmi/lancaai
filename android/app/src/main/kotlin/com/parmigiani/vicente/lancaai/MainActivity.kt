@@ -1,4 +1,4 @@
-package com.example.lancaai
+package com.parmigiani.vicente.lancaai
 
 import io.flutter.embedding.android.FlutterActivity
 

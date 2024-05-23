@@ -21,8 +21,8 @@ class FullScreenChat extends StatelessWidget {
               style: Theme.of(context).textTheme.titleLarge!.copyWith(
                     color: Theme.of(context).colorScheme.onSurfaceVariant,
                   )),
-          backgroundColor: Theme.of(context).colorScheme.surfaceVariant),
-      backgroundColor: Theme.of(context).colorScheme.surfaceVariant,
+          backgroundColor: Theme.of(context).colorScheme.surfaceContainerHighest),
+      backgroundColor: Theme.of(context).colorScheme.surfaceContainerHighest,
       body: ChatScreen(
         songLyrics: lyrics,
         name: name,

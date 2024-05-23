@@ -5,10 +5,11 @@ Conheça mais a fundo as músicas mais ouvidas de RitaLee com o auxílio do Gemi
 ## Link para acesso
 
 - [Versão web](https://vicenteparmi.github.io/lancaaiweb/)
+- [Aplicativo Android](https://play.google.com/store/apps/details?id=com.parmigiani.vicente.lancaai)
 
 ![LançaAI](./docs/image1.png) ![LançaAI](./docs/image2.png)
 
-> O projeto também foi desenvolvido para ser acessado em dispositivos móveis. Para isso, será necessário realizar a compilação do projeto para a plataforma desejada. Também disponibilizo o apk para download na aba de *releases*.
+> O projeto também foi desenvolvido para ser acessado em outros dispositivos. Para isso, será necessário realizar a compilação do projeto para a plataforma desejada.
 
 ## Tecnologias utilizadas
 

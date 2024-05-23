@@ -4,7 +4,7 @@ description: "Letras de Rita Lee aprofundadas com Gemini"
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
 
-version: 1.0.0+1
+version: 1.0.0+2
 
 environment:
   sdk: '>=3.3.4 <4.0.0'

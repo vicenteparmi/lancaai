@@ -186,9 +186,9 @@ class _ChatScreenState extends State<ChatScreen> {
             topRight: Radius.circular(12),
           ),
           color: MediaQuery.of(context).size.width < 600
-              ? Theme.of(context).colorScheme.surfaceVariant
+              ? Theme.of(context).colorScheme.surfaceContainerHighest
               : Color.lerp(Theme.of(context).colorScheme.surfaceTint,
-                  Theme.of(context).colorScheme.surfaceVariant, 0.75),
+                  Theme.of(context).colorScheme.surfaceContainerHighest, 0.75),
         ),
         child: Scrollbar(
           controller: _scrollController,
@@ -232,7 +232,7 @@ class _ChatScreenState extends State<ChatScreen> {
           ),
         ),
       ),
-      backgroundColor: Theme.of(context).colorScheme.surfaceVariant,
+      backgroundColor: Theme.of(context).colorScheme.surfaceContainerHighest,
       body: Padding(
         padding: const EdgeInsets.only(
             bottom: 64.0, top: 16.0, left: 16.0, right: 16.0),
@@ -259,7 +259,7 @@ class _ChatScreenState extends State<ChatScreen> {
           theme: DarkChatTheme(
             primaryColor: Theme.of(context).colorScheme.primary,
             secondaryColor: Theme.of(context).colorScheme.secondary,
-            backgroundColor: Theme.of(context).colorScheme.surfaceVariant,
+            backgroundColor: Theme.of(context).colorScheme.surfaceContainerHighest,
             inputTextColor: Theme.of(context).colorScheme.onTertiaryContainer,
             inputBackgroundColor:
                 Theme.of(context).colorScheme.tertiaryContainer,
